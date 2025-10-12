@@ -76,7 +76,8 @@
 // ================= END OF EXPLANATION =================
 
 // ================ CODE-STRUCTURE =================
-// (1) funct minScoreTriangulation(values) {V.length,V.from(.fill),for(gap){for(i){v,VInfinity,for(k){V,Math.min}}}return}
+// (1) funct minScoreTriangulation(values) {V.length,V.from(.fill),for(gap){for(i){V,Infinity,for(k){V,Math.min}}}return}
+// ================ CODE-STRUCTURE END =================
 
 /**
  * @param {number[]} values
@@ -100,3 +101,31 @@ var minScoreTriangulation = function(values) {
 
     return dp[0][n - 1];
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
