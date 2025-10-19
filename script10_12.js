@@ -161,7 +161,7 @@
 // =========================== END OF EXPLANATION ====================
 
 // ================== CODE-STRUCTURE ======================
-
+// (1) funct maximumTotalDamage(power){VnewMap,forof(p){.set(dmg(.get))+}V.from(.keys).sort((p))V.length,V.fill}
 // ======================== CODE-STRUCTURE ENDS ========================
 
 /**
@@ -169,24 +169,19 @@
  * @return {number}
  */
 var maximumTotalDamage = function(power) {
-  const damageMap = new Map();
-  
+  const damageMap = new Map(); 
   // Step 1: group total damages by spell power
   for (let dmg of power) {
     damageMap.set(dmg, (damageMap.get(dmg) || 0) + dmg);
   }
-
   // Step 2: sort unique damages
   const unique = Array.from(damageMap.keys()).sort((a, b) => a - b);
-  const n = unique.length;
-  
+  const n = unique.length;  
   // Step 3: initialize DP array
   const dp = Array(n).fill(0);
-
   for (let i = 0; i < n; i++) {
     const current = unique[i];
     const currentSum = damageMap.get(current);
-
     // find index of last value less than current - 2
     let j = i - 1;
     while (j >= 0 && unique[j] >= current - 2) j--;
