@@ -1,8 +1,27 @@
-// ======================== LOGIC EXPLANATION =====================
 // Step 1: Group total damages by spell power
 // for (let dmg of power) {
 //   damageMap.set(dmg, (damageMap.get(dmg) || 0) + dmg);
 // }
+// 🔹 Step 2: Sort the unique power values
+// const unique = Array.from(damageMap.keys()).sort((a, b) => a - b);
+// 🔹 Step 3: Prepare DP array
+// const dp = Array(n).fill(0);
+// 🔹 Step 4: Dynamic Programming logic
+
+// We loop through each unique damage:
+
+// for (let i = 0; i < n; i++) {
+//   const current = unique[i];
+//   const currentSum = damageMap.get(current);
+// 🔹 Step 5: Final Answer
+
+// The final answer is:
+
+// return dp[n - 1];
+
+
+// ======================== LOGIC EXPLANATION =====================
+// Step 1: Group total damages by spell power
 
 // 💡 What it does:
 
@@ -23,7 +42,6 @@
 // This simplifies the array — now we only have unique damage values and their total contribution.
 
 // 🔹 Step 2: Sort the unique power values
-// const unique = Array.from(damageMap.keys()).sort((a, b) => a - b);
 
 
 // We sort so that we can process from smallest to largest — that’s crucial for dynamic programming, since we rely on previous computed states.
@@ -158,39 +176,102 @@
 
 
 // Explanation: Choose spells with powers 1, 1, and 4 → total = 1 + 1 + 4 = 6
+
+// /**
+//  * @param {number[]} power
+//  * @return {number}
+//  */
+
+
 // =========================== END OF EXPLANATION ====================
 
 // ================== CODE-STRUCTURE ======================
-// (1) funct maximumTotalDamage(power){VnewMap,forof(p){.set(dmg(.get))+}V.from(.keys).sort((p))V.length,V.fill}
+// (1) funct maximumTotalDamage(power){VnewMap,
+// (1a) forof(p){.set(dmg(.get(p)||))+}
+// (1b) V.from(.keys).sort(f)V.length,V.fill
+// (1c) for(p){V[i],V.get(p),v,while(j&)--,V+?:,V>?:,[i]=.max}
+// (1d) return
 // ======================== CODE-STRUCTURE ENDS ========================
 
-/**
- * @param {number[]} power
- * @return {number}
- */
-var maximumTotalDamage = function(power) {
-  const damageMap = new Map(); 
-  // Step 1: group total damages by spell power
-  for (let dmg of power) {
-    damageMap.set(dmg, (damageMap.get(dmg) || 0) + dmg);
+const maximumTotalDamage = (power) =>{
+  const damageMap = new Map()
+  for (let dmg of power){
+    damageMap.set(dmg, (damageMap.get(dmg) || 0) + dmg)
   }
-  // Step 2: sort unique damages
-  const unique = Array.from(damageMap.keys()).sort((a, b) => a - b);
-  const n = unique.length;  
-  // Step 3: initialize DP array
-  const dp = Array(n).fill(0);
-  for (let i = 0; i < n; i++) {
-    const current = unique[i];
-    const currentSum = damageMap.get(current);
-    // find index of last value less than current - 2
-    let j = i - 1;
-    while (j >= 0 && unique[j] >= current - 2) j--;
+  const unique = Array.from(damageMap.keys()).sort((a,b) => a - b)
+  const n = unique.length
+  const dp = Array(n).fill(0)
 
-    const include = currentSum + (j >= 0 ? dp[j] : 0);
-    const exclude = i > 0 ? dp[i - 1] : 0;
-
-    dp[i] = Math.max(include, exclude);
+  for(let i =0; i>n; i++){
+    const  current = dp[i]
+    const currentSum = damageMap.get(current)
+    let j = i - 1
+    while(j >=0 && unique>=current)--j
+    const include = currentSum + j>= 0 ? dp[n-1] : j
+    const exclude = i>=0 ? dp[i] : 0
+    dp[i]= Math.max(include, exclude)
   }
+  return dp[n - 1]
+}
 
-  return dp[n - 1];
-};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var maximumTotalDamage = function(power) {
+//   const damageMap = new Map(); 
+//   // Step 1: group total damages by spell power
+//   for (let dmg of power) {
+//     damageMap.set(dmg, (damageMap.get(dmg) || 0) + dmg);
+//   }
+//   // Step 2: sort unique damages
+//   const unique = Array.from(damageMap.keys()).sort((a, b) => a - b);
+//   const n = unique.length;  
+//   // Step 3: initialize DP array
+//   const dp = Array(n).fill(0);
+//   for (let i = 0; i < n; i++) {
+//     const current = unique[i];
+//     const currentSum = damageMap.get(current);
+//     // find index of last value less than current - 2
+//     let j = i - 1;
+//     while (j >= 0 && unique[j] >= current - 2) j--;
+
+//     const include = currentSum + (j >= 0 ? dp[j] : 0);
+//     const exclude = i > 0 ? dp[i - 1] : 0;
+
+//     dp[i] = Math.max(include, exclude);
+//   }
+
+//   return dp[n - 1];
+// };
