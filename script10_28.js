@@ -105,7 +105,12 @@
 
 // After checking every possible zero index and both directions, return the total number of valid selections.
 
-
+// ============================  CODE STRUCTURE  ==========================
+// (1) funct countValidSelection(p){V.length,v
+// (1a) functstimulate(2p){V.slice,v,while(p){if(p){++}else{--,*-1,++}}return.every(f)}
+// (1b) for(p){if(p){2if(p)++}}
+// (1c) return
+// }
 
 /**
  * @param {number[]} nums

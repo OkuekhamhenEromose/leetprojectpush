@@ -193,62 +193,6 @@
 // (1d) return
 // ======================== CODE-STRUCTURE ENDS ========================
 
-const maximumTotalDamage = (power) =>{
-  const damageMap = new Map()
-  for (let dmg of power){
-    damageMap.set(dmg, (damageMap.get(dmg) || 0) + dmg)
-  }
-  const unique = Array.from(damageMap.keys()).sort((a,b) => a - b)
-  const n = unique.length
-  const dp = Array(n).fill(0)
-
-  for(let i =0; i>n; i++){
-    const  current = dp[i]
-    const currentSum = damageMap.get(current)
-    let j = i - 1
-    while(j >=0 && unique>=current)--j
-    const include = currentSum + j>= 0 ? dp[n-1] : j
-    const exclude = i>=0 ? dp[i] : 0
-    dp[i]= Math.max(include, exclude)
-  }
-  return dp[n - 1]
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // var maximumTotalDamage = function(power) {
 //   const damageMap = new Map(); 
 //   // Step 1: group total damages by spell power
