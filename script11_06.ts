@@ -176,6 +176,17 @@
 
 // Returns an array with answers to all Type 1 queries.
 
+// ==============================  CODE STRUCTURE  =================================
+// (1a) class UnionFind{2:,const(p){this..from(p,funct)this.new().fill()}
+// (1b) find(p){if(p){this.this.(this,[])} return}
+// (1c) union(p){2vthis,if(p)return,if(p){this.}elseif(p){this.}else{this.,this.++}}
+// }
+// (2a) class MyMinHeap{:,push(p){this.push(),this.bubbleup},pop:{if(p===)return,Vthis.[],Vthis..pop,if(p&!==){this.[],this.}return}peek:{returnthis.[]}
+// (2b) privatebubbleup(){vthis..length,while(p){V.floor(),if(this.[]<=)br,[this.,this[]]=,=}}
+// (2c) privatebubbledown(){v,Vthis..length,while(p){2v*,v,2if(p>&this.<this.[]){=}if(p===)br,[this.[],this[]]=,=}}
+// (3a)functionprocessQueries(4p){Vnew(),forof(p){.union()},Vnew<p>(),for(p){V.find(),if(!.has()).set(pcall).get()!.push()}Vnew<p>(),V:[]}
+// (3b)forof(p[]){V.find(),if(===){if(!.has()).push()}else{V.get()!,while(.peek!==&.has(.peek!){.pop}.push(.peek??-1)}}else{.add}}return}
+
 class UnionFind {
     parent: number[];
     rank: number[];
