@@ -63,7 +63,8 @@
 
 # ::::::::::::::::::::  CODE STRUCTURE ::::::::::::::::::::
 # (1) class Solution(p)
-#  (1a) def smallestNumber(2p){=,while(p){=<<|},return}
+# (1a) def smallestNumber(2p){=,while(p){=<<|}
+# (1b) return}}
 
 class Solution(object):
     def smallestNumber(self, n):

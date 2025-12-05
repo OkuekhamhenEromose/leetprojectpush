@@ -187,6 +187,10 @@
 // (3a)functionprocessQueries(4p){Vnew(),forof(p){.union()},Vnew<p>(),for(p){V.find(),if(!.has()).set(pcall).get()!.push()}Vnew<p>(),V:[]}
 // (3b)forof(p[]){V.find(),if(===){if(!.has()).push()}else{V.get()!,while(.peek!==&.has(.peek!){.pop}.push(.peek??-1)}}else{.add}}return}
 
+
+
+
+
 class UnionFind {
     parent: number[];
     rank: number[];
