@@ -168,7 +168,3 @@ var countPartitions = function(nums) {
 
     return count;
 };
-
-
-// ======================== TYPESCRIPT ==================
-
