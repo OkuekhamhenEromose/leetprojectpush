@@ -239,3 +239,226 @@ function latestDayToCross(row: number, col: number, cells: number[][]): number {
 
     return answer;
 }
+
+// ========================  PYTHON TO TYPESCRIPT COMPARISON  =============================
+// 🔍 Python ↔ TypeScript: Deep Comparison & Analysis
+// 1️⃣ Language Philosophy
+// Aspect	Python	TypeScript
+// Core idea	Readability & simplicity	Safety on top of JavaScript
+// Typing	Dynamic	Static (optional but powerful)
+// Runtime	Interpreted	Compiled → JavaScript
+// Primary domain	Backend, data, scripting	Frontend + full-stack
+
+// 🔑 Key insight
+// Python optimizes for speed of writing
+// TypeScript optimizes for correctness & maintainability
+
+// 2️⃣ Type System (Most Important Difference)
+// Python
+// def add(a, b):
+//     return a + b
+
+
+// ✔ Works with anything
+// ❌ Errors only appear at runtime
+
+// TypeScript
+// function add(a: number, b: number): number {
+//     return a + b;
+// }
+
+
+// ✔ Errors caught before execution
+// ✔ IDE autocomplete & refactoring
+// ✔ Safer large codebases
+
+// 📌 Why TS wins in big projects
+
+// Prevents silent bugs
+
+// Makes refactoring safe
+
+// Documents intent via types
+
+// 3️⃣ Data Structures Comparison
+// Arrays / Lists
+// Python	TypeScript
+// list	number[], string[]
+// arr = [1, 2, 3]
+
+// const arr: number[] = [1, 2, 3];
+
+
+// TypeScript forces uniform type discipline, Python does not.
+
+// Dictionaries / Objects
+// user = {"name": "Charles", "age": 25}
+
+// const user: { name: string; age: number } = {
+//     name: "Charles",
+//     age: 25
+// };
+
+
+// 🔑 TS objects behave like typed schemas, Python dicts are free-form.
+
+// 4️⃣ Loops (for-in vs for-of – very important)
+// Python
+// for x in arr:
+//     print(x)
+
+
+// Simple and intuitive.
+
+// TypeScript
+// for (const x of arr) {
+//     console.log(x);
+// }
+
+
+// 🚨 Critical TS distinction
+
+// for (const i in arr)  // indexes
+// for (const v of arr)  // values
+
+
+// Python hides this complexity; TS exposes it.
+
+// 5️⃣ Functions & Closures
+// Python
+// def greet(name="Guest"):
+//     return f"Hello {name}"
+
+// TypeScript
+// function greet(name: string = "Guest"): string {
+//     return `Hello ${name}`;
+// }
+
+
+// TS requires explicit return types in professional codebases.
+
+// 6️⃣ Classes & OOP
+// Python
+// class User:
+//     def __init__(self, name):
+//         self.name = name
+
+// TypeScript
+// class User {
+//     constructor(public name: string) {}
+// }
+
+
+// ✔ TS reduces boilerplate
+// ✔ Access modifiers (public, private, readonly) are enforced
+
+// 7️⃣ Error Handling
+// Python
+// try:
+//     risky()
+// except Exception as e:
+//     print(e)
+
+// TypeScript
+// try {
+//     risky();
+// } catch (e) {
+//     console.error(e);
+// }
+
+
+// ❗ TypeScript does not type exceptions
+// This is one area Python is more flexible.
+
+// 8️⃣ Asynchronous Programming
+// Python (async/await)
+// async def fetch_data():
+//     await get_data()
+
+// TypeScript
+// async function fetchData(): Promise<void> {
+//     await getData();
+// }
+
+
+// 🔑 TS forces you to think in Promises
+// This avoids many async bugs common in JS.
+
+// 9️⃣ Performance Model
+// Area	Python	TypeScript
+// Execution	Slower	Faster (JS engines)
+// CPU tasks	Weak	Strong
+// I/O	Excellent	Excellent
+// Web apps	Backend	Frontend + backend
+
+// 📌 For algorithms (LeetCode):
+
+// TS often runs faster
+
+// Python is easier to write
+
+// 🔟 Tooling & Ecosystem
+// Python
+
+// Django, Flask, FastAPI
+
+// NumPy, Pandas, ML
+
+// Scripting & automation
+
+// TypeScript
+
+// React, Next.js, Angular
+
+// Node.js backends
+
+// Strong IDE support
+
+// 🔑 Hiring reality
+
+// Python → backend / data
+
+// TypeScript → full-stack / frontend-heavy roles
+
+// 1️⃣1️⃣ Interview Perspective
+// Criteria	Python	TypeScript
+// Speed	⭐⭐⭐⭐⭐	⭐⭐⭐
+// Readability	⭐⭐⭐⭐⭐	⭐⭐⭐⭐
+// Safety	⭐⭐	⭐⭐⭐⭐⭐
+// Scalability	⭐⭐⭐	⭐⭐⭐⭐⭐
+
+// Most interviews:
+
+// Python = faster coding
+
+// TS = shows engineering maturity
+
+// 1️⃣2️⃣ Algorithm Example Comparison (BFS)
+// Python
+// from collections import deque
+
+// q = deque()
+// q.append((0, 0))
+
+// TypeScript
+// const queue: [number, number][] = [];
+// queue.push([0, 0]);
+
+
+// Python wins in brevity
+// TS wins in type clarity
+
+// 🧠 Final Verdict (Practical)
+// When to Use Python
+
+// ✔ Rapid prototyping
+// ✔ Algorithms & interviews
+// ✔ Backend logic
+// ✔ Data processing
+
+// When to Use TypeScript
+
+// ✔ Production web apps
+// ✔ Large teams
+// ✔ Long-term maintainability
+// ✔ Frontend + backend consistency
