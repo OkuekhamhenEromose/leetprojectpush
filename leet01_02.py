@@ -71,6 +71,9 @@
 
 # If it’s the first time we see the number, store it
 
+# :::::::::::::::::::::::::  CODE STRUCTURE  ::::::::::::::::::
+# (1) class Solution(p)
+# (1a) def repeatedNTimes(2p){v,forin{if(p){return}.add}}
 
 class Solution(object):
     def repeatedNTimes(self, nums):
