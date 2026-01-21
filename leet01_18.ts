@@ -166,3 +166,141 @@ export function largestMagicSquare(grid: number[][]): number {
     // Every single cell is a 1x1 magic square
     return 1;
 }
+
+
+// 🔁 JS ↔ Python ↔ TypeScript Comparison
+
+// Problem: Largest Magic Square
+
+// 🧠 Core Algorithm (Same for All 3)
+
+// All three languages use exactly the same strategy:
+
+// Precompute row and column prefix sums
+
+// Try square sizes from largest → smallest
+
+// Slide a k × k window over the grid
+
+// Check:
+
+// All row sums
+
+// All column sums
+
+// Both diagonals
+
+// Return immediately when the first valid square is found
+
+// 👉 Algorithmic thinking is identical
+// 👉 Differences are syntax + typing, not logic
+
+// 🟨 Python Solution (Most Readable)
+// Key Characteristics
+
+// Clean, concise syntax
+
+// Minimal boilerplate
+
+// Easy for reasoning & debugging
+
+// Snippet
+// rowSum = prefixRow[r][c2] - prefixRow[r][c1]
+// colSum = prefixCol[r2][c] - prefixCol[r1][c]
+
+// Pros
+
+// ✔ Very readable
+// ✔ Best for interviews & whiteboards
+// ✔ Easy prefix sum logic
+
+// Cons
+
+// ❌ Slower than JS/TS for large loops (but OK here)
+
+// 🟦 JavaScript Solution (Performance-Focused)
+// Key Characteristics
+
+// Manual arrays
+
+// Faster execution than Python
+
+// No type checking
+
+// Snippet
+// const getRowSum = (r, c1, c2) =>
+//     rowPrefix[r][c2] - rowPrefix[r][c1];
+
+// Pros
+
+// ✔ Fast
+// ✔ Preferred for frontend/full-stack roles
+// ✔ Works naturally in LeetCode JS environment
+
+// Cons
+
+// ❌ No type safety
+// ❌ Slightly verbose
+
+// 🟩 TypeScript Solution (Production-Grade)
+// Key Characteristics
+
+// Same runtime as JavaScript
+
+// Compile-time safety
+
+// Best for large codebases
+
+// Snippet
+// function getRowSum(r: number, c1: number, c2: number): number {
+//     return rowPrefix[r][c2] - rowPrefix[r][c1];
+// }
+
+// Pros
+
+// ✔ Type safety
+// ✔ Easier to maintain
+// ✔ Ideal for enterprise/frontend roles
+
+// Cons
+
+// ❌ More verbose
+// ❌ Slight learning curve
+
+// 🔍 Side-by-Side Feature Comparison
+// Feature	Python	JavaScript	TypeScript
+// Algorithm	Same	Same	Same
+// Prefix Sums	Yes	Yes	Yes
+// Type Safety	❌	❌	✅
+// Runtime Speed	Medium	Fast	Fast
+// Readability	⭐⭐⭐⭐⭐	⭐⭐⭐⭐	⭐⭐⭐
+// Interview Friendly	⭐⭐⭐⭐⭐	⭐⭐⭐⭐	⭐⭐⭐⭐
+// Production Ready	⭐⭐⭐	⭐⭐⭐⭐	⭐⭐⭐⭐⭐
+// 🧑‍🏫 Interview Perspective
+// If asked language-agnostic
+
+// Explain the prefix sum optimization and early exit
+
+// If asked Python
+
+// ✔ Emphasize readability
+// ✔ Focus on algorithm correctness
+
+// If asked JavaScript
+
+// ✔ Highlight performance
+// ✔ Use helper functions
+
+// If asked TypeScript
+
+// ✔ Mention type safety
+// ✔ Show scalable thinking
+
+// 🏁 Final Verdict
+// Goal	Best Choice
+// Fast coding / interviews	Python
+// LeetCode + frontend	JavaScript
+// Real-world apps	TypeScript
+
+// 👉 All three solve the problem equally well
+// 👉 Choice depends on context, not capability
