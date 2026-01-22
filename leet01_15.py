@@ -11,7 +11,7 @@
 
 # Return an integer denoting the maximum area of a square-shaped hole in the grid, after removing some bars (possibly none).
 
-# :::::::::::::::::::::::::::::::::  PYTHON  ::::::::::::::::::::::::::::::::::
+# :::::::::::::::::::::::::::::::::  PYTHON  :::::::::::::::::::::::::::::::::::
 # 🧠 Conceptual Explanation (Tutor Style)
 
 # Let’s break the problem down logically.
@@ -94,40 +94,113 @@
 # 5️⃣ Return the Area
 # return side * side
 
+# ::::::::::::::::::::::::::::  CODE STRUCTURE  :::::::::::::::::::
+# (1) class Solution(p){
+# (1a) def maximizeSquareHoleArea(3p){2.sort,
+# (1a1) def longest_consecutive(p){2v,forin(2v){if(==){++,=max}else{=}}return}
+# (1a2) 2=call,if,else
+# (1a3) =min++
+# return}
+# }
+
 
 class Solution(object):
-    def maximizeSquareHoleArea(self, n, m, hBars, vBars):
-        """
-        :type n: int
-        :type m: int
-        :type hBars: List[int]
-        :type vBars: List[int]
-        :rtype: int
-        """
-
-        # Sort the removable bars
+    def maximizeSquareHoleArea(self, hBars, vBars):
         hBars.sort()
         vBars.sort()
-
-        # Function to find the longest consecutive sequence
         def longest_consecutive(arr):
-            longest = 1
             current = 1
-
-            for i in range(1, len(arr)):
+            longest = 1
+            for i in range(1, arr[i - 1]):
                 if arr[i] == arr[i - 1] + 1:
                     current += 1
                     longest = max(longest, current)
+
                 else:
                     current = 1
 
             return longest
-
-        # Longest streak of removable bars in each direction
         max_h = longest_consecutive(hBars) if hBars else 0
         max_v = longest_consecutive(vBars) if vBars else 0
-
-        # The side of the square is limited by the smaller dimension
         side = min(max_h, max_v) + 1
+        return side * side 
 
-        return side * side
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# class Solution(object):
+#     def maximizeSquareHoleArea(self, hBars, vBars):
+
+#         # Sort the removable bars
+#         hBars.sort()
+#         vBars.sort()
+
+#         # Function to find the longest consecutive sequence
+#         def longest_consecutive(arr):
+#             longest = 1
+#             current = 1
+
+#             for i in range(1, len(arr)):
+#                 if arr[i] == arr[i - 1] + 1:
+#                     current += 1
+#                     longest = max(longest, current)
+#                 else:
+#                     current = 1
+
+#             return longest
+
+#         # Longest streak of removable bars in each direction
+#         max_h = longest_consecutive(hBars) if hBars else 0
+#         max_v = longest_consecutive(vBars) if vBars else 0
+
+#         # The side of the square is limited by the smaller dimension
+#         side = min(max_h, max_v) + 1
+
+#         return side * side
