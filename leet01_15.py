@@ -104,103 +104,33 @@
 # }
 
 
+
 class Solution(object):
     def maximizeSquareHoleArea(self, hBars, vBars):
+
+        # Sort the removable bars
         hBars.sort()
         vBars.sort()
+
+        # Function to find the longest consecutive sequence
         def longest_consecutive(arr):
-            current = 1
             longest = 1
-            for i in range(1, arr[i - 1]):
+            current = 1
+
+            for i in range(1, len(arr)):
                 if arr[i] == arr[i - 1] + 1:
                     current += 1
                     longest = max(longest, current)
-
                 else:
                     current = 1
 
             return longest
+
+        # Longest streak of removable bars in each direction
         max_h = longest_consecutive(hBars) if hBars else 0
         max_v = longest_consecutive(vBars) if vBars else 0
+
+        # The side of the square is limited by the smaller dimension
         side = min(max_h, max_v) + 1
-        return side * side 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# class Solution(object):
-#     def maximizeSquareHoleArea(self, hBars, vBars):
-
-#         # Sort the removable bars
-#         hBars.sort()
-#         vBars.sort()
-
-#         # Function to find the longest consecutive sequence
-#         def longest_consecutive(arr):
-#             longest = 1
-#             current = 1
-
-#             for i in range(1, len(arr)):
-#                 if arr[i] == arr[i - 1] + 1:
-#                     current += 1
-#                     longest = max(longest, current)
-#                 else:
-#                     current = 1
-
-#             return longest
-
-#         # Longest streak of removable bars in each direction
-#         max_h = longest_consecutive(hBars) if hBars else 0
-#         max_v = longest_consecutive(vBars) if vBars else 0
-
-#         # The side of the square is limited by the smaller dimension
-#         side = min(max_h, max_v) + 1
-
-#         return side * side
+        return side * side

@@ -1,5 +1,3 @@
-
-
 // =================================  JAVASCRIPT  ==================================
 
 // 🧠 Comprehensive Explanation (JavaScript Tutor Style)
@@ -95,8 +93,14 @@
 // 6️⃣ Return the Area
 // return side * side;
 
+// =====================  CODE STRUCTURE  ========================
+// (1) funct maximizeSquareHoleArea(2p){2.sort
+// (1a) funct longestConsecutive(p){if(p)return,2v,for(p){if(p){++,Math}else{=}}return}
+// (1b) 2Vcall,VMath,return
+// }
 
-var maximizeSquareHoleArea = function(n, m, hBars, vBars) {
+
+var maximizeSquareHoleArea = function(hBars, vBars) {
 
     // Sort both arrays to detect consecutive bars
     hBars.sort((a, b) => a - b);
