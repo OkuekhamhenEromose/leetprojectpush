@@ -138,29 +138,102 @@
 
 // Otherwise returns the largest square area
 
+
+// ===================================  CODE STRUCTURE  ==================================
+// (1) expfunct largestSquareArea(p){
+// (1a) V,v,for(p){for(p){4VMath,if(p&){VMath,=Math}}}
+//  (1b) return
+// }
+
+
 export function largestSquareArea(
     bottomLeft: number[][],
     topRight: number[][]
-): number {
-    const n = bottomLeft.length;
-    let maxArea = 0;
-
-    for (let i = 0; i < n; i++) {
-        for (let j = i + 1; j < n; j++) {
-            const left = Math.max(bottomLeft[i][0], bottomLeft[j][0]);
-            const right = Math.min(topRight[i][0], topRight[j][0]);
-            const bottom = Math.max(bottomLeft[i][1], bottomLeft[j][1]);
-            const top = Math.min(topRight[i][1], topRight[j][1]);
-
-            if (left < right && bottom < top) {
-                const side = Math.min(right - left, top - bottom);
-                maxArea = Math.max(maxArea, side * side);
+): number{
+    const n = bottomLeft.length
+    let max_area = 0
+    for(let i = 0; i <n; i++){
+        for(let j=i+1; j<n; j++){
+            const left = Math.max(bottomLeft[i][0], bottomLeft[j][0])
+            const right = Math.min(topRight[i][0], topRight[j][0])
+            const bottom = Math.max(bottomLeft[i][1], bottomLeft[j][1])
+            const top = Math.min(topRight[i][0], topRight[j][0])
+            if(left<right && bottom<top){
+                const side = Math.min(right - left, top - bottom)
+                max_area= Math.max(max_area,side*side)
             }
         }
     }
-
-    return maxArea;
+    return max_area
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export function largestSquareArea(
+//     bottomLeft: number[][],
+//     topRight: number[][]
+// ): number {
+//     const n = bottomLeft.length;
+//     let maxArea = 0;
+
+//     for (let i = 0; i < n; i++) {
+//         for (let j = i + 1; j < n; j++) {
+//             const left = Math.max(bottomLeft[i][0], bottomLeft[j][0]);
+//             const right = Math.min(topRight[i][0], topRight[j][0]);
+//             const bottom = Math.max(bottomLeft[i][1], bottomLeft[j][1]);
+//             const top = Math.min(topRight[i][1], topRight[j][1]);
+
+//             if (left < right && bottom < top) {
+//                 const side = Math.min(right - left, top - bottom);
+//                 maxArea = Math.max(maxArea, side * side);
+//             }
+//         }
+//     }
+
+//     return maxArea;
+// }
 
 // 🧠 Core Algorithm (Same in All 3)
 

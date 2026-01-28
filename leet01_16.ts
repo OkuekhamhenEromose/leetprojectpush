@@ -127,6 +127,9 @@
 
 // Convert to number (LeetCode requirement)
 
+// ==========================  CODE STRUCTURE  =============================
+// (1) funct maximizeSquareArea(4p){
+// (1a) V,2.push,2.sort,Vnew,for(p){for(p){.add}},v,for(p){for(p){}V,if(p){V,if(p)}}return?:
 
 export function maximizeSquareArea(
     m: number,
