@@ -94,7 +94,7 @@
 // Works well because m, n ≤ 50
 
 // ======================================  CODE STRUCTURE  =========================================
-// (1) funct largestMagicSquare(p){2V.length,2V.fromfunct.fill,for(p){for(p){2+}2Vfunct-,V.min}
+// (1) funct largestMagicSquare(p){2V.length,2V.fromfunct.fill,for(p){for(p){2+}}2Vfunct-,V.min
 // (1a) for(p){for(p){for(p){Vcall,v,2for(p){if(call){false}}if(!p){},2vfor(p){++}if(!==){}return}}}
 // (1b) return
 // }

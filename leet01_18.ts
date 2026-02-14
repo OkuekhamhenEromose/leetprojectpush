@@ -93,79 +93,177 @@
 
 // O(m × n) for prefix sums
 
-export function largestMagicSquare(grid: number[][]): number {
-    const m = grid.length;
-    const n = grid[0].length;
+// ===========================  CODE STRUCTURE ===========================
+// (1) expfunct largestMagicSquare(p){2V.length,2V.fromfunct.fill,for(p){for(p){2+}2Vfunct-,V.min}
+// (1a) for(p){for(p){for(p){Vcall,v,2for(p){if(call){false}}if(!p){},2vfor(p){++}if(!==){}return}}}
+// (1b) return
+// }
 
-    // Prefix sums for rows and columns
-    const rowPrefix: number[][] = Array.from({ length: m }, () => Array(n + 1).fill(0));
-    const colPrefix: number[][] = Array.from({ length: m + 1 }, () => Array(n).fill(0));
 
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            rowPrefix[i][j + 1] = rowPrefix[i][j] + grid[i][j];
-            colPrefix[i + 1][j] = colPrefix[i][j] + grid[i][j];
+export function largestMagicSquare(grid: number[][]): number{
+    const m: number = grid.length
+    const n: number = grid[0].length
+    const rowPrefix: number[][] = Array.from({length:m}, ()=> Array(n+1).fill(0))
+    const colPrefix: number[][] = Array.from({length:m+1}, ()=>Array(n).fill(0))
+    for(let i=0;i<m;i++){
+        for(let j=0;j<n;j++){
+            rowPrefix[i][j+1]=rowPrefix[i][j]+grid[i][j]
+            colPrefix[i+1][j]=colPrefix[i][j]+grid[i][j]
         }
     }
-
-    // Helpers to get row / column sums in O(1)
-    const rowSum = (r: number, c1: number, c2: number): number =>
-        rowPrefix[r][c2] - rowPrefix[r][c1];
-
-    const colSum = (c: number, r1: number, r2: number): number =>
-        colPrefix[r2][c] - colPrefix[r1][c];
-
-    const maxSize = Math.min(m, n);
-
-    // Try largest size first
-    for (let k = maxSize; k >= 2; k--) {
-        for (let i = 0; i + k <= m; i++) {
-            for (let j = 0; j + k <= n; j++) {
-
-                const target = rowSum(i, j, j + k);
-
-                // Check rows
-                let valid = true;
-                for (let r = 0; r < k; r++) {
-                    if (rowSum(i + r, j, j + k) !== target) {
-                        valid = false;
-                        break;
+    const rowSum=(r:number,c1:number,c2:number): number=>
+        rowPrefix[r][c2]-rowPrefix[r][c1]
+    const colSum=(c:number,r1:number,r2:number): number=>
+        colPrefix[c][r2]-colPrefix[c][r1]
+    const maxSize = Math.min(m,n)
+    for(let k=maxSize; k>=2;k++){
+        for(let i=0;i+k<=m;i++){
+            for(let j=0;j+k<=n;j++){
+                const target = rowSum(i,j+k,k)
+                let valid = true
+                for(let r=0; r<k; r++){
+                    if(rowSum(i+r,j,j+k)!==target){
+                        valid=false
+                        break
                     }
+                    if(!valid)continue
                 }
-                if (!valid) continue;
-
-                // Check columns
-                for (let c = 0; c < k; c++) {
-                    if (colSum(j + c, i, i + k) !== target) {
-                        valid = false;
-                        break;
+                for(let c=0; c<k; c++){
+                    if(colSum(j+c,i,i+k)!==target){
+                        valid=false
+                        break
                     }
+                    if(!valid)continue
                 }
-                if (!valid) continue;
-
-                // Check main diagonal
-                let diag1 = 0;
-                for (let d = 0; d < k; d++) {
-                    diag1 += grid[i + d][j + d];
+                let diag1=0
+                for(let d=0;d<k;d++){
+                    diag1=grid[i+d][j+d]
                 }
-                if (diag1 !== target) continue;
-
-                // Check anti-diagonal
-                let diag2 = 0;
-                for (let d = 0; d < k; d++) {
-                    diag2 += grid[i + d][j + k - 1 - d];
+                if(diag1!==target)continue
+                let diag2=0
+                for(let d=0;d<k;d++){
+                    diag2=grid[i+d][j+k-1-d]
                 }
-                if (diag2 !== target) continue;
-
-                // Found largest valid magic square
-                return k;
+                if(diag2!==target)continue
+                return k
             }
         }
     }
 
-    // Every single cell is a 1x1 magic square
-    return 1;
+    return 1
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export function largestMagicSquare(grid: number[][]): number {
+//     const m = grid.length;
+//     const n = grid[0].length;
+
+//     // Prefix sums for rows and columns
+//     const rowPrefix: number[][] = Array.from({ length: m }, () => Array(n + 1).fill(0));
+//     const colPrefix: number[][] = Array.from({ length: m + 1 }, () => Array(n).fill(0));
+
+//     for (let i = 0; i < m; i++) {
+//         for (let j = 0; j < n; j++) {
+//             rowPrefix[i][j + 1] = rowPrefix[i][j] + grid[i][j];
+//             colPrefix[i + 1][j] = colPrefix[i][j] + grid[i][j];
+//         }
+//     }
+
+//     // Helpers to get row / column sums in O(1)
+//     const rowSum = (r: number, c1: number, c2: number): number =>
+//         rowPrefix[r][c2] - rowPrefix[r][c1];
+
+//     const colSum = (c: number, r1: number, r2: number): number =>
+//         colPrefix[r2][c] - colPrefix[r1][c];
+
+//     const maxSize = Math.min(m, n);
+
+//     // Try largest size first
+//     for (let k = maxSize; k >= 2; k--) {
+//         for (let i = 0; i + k <= m; i++) {
+//             for (let j = 0; j + k <= n; j++) {
+
+//                 const target = rowSum(i, j, j + k);
+
+//                 // Check rows
+//                 let valid = true;
+//                 for (let r = 0; r < k; r++) {
+//                     if (rowSum(i + r, j, j + k) !== target) {
+//                         valid = false;
+//                         break;
+//                     }
+//                 }
+//                 if (!valid) continue;
+
+//                 // Check columns
+//                 for (let c = 0; c < k; c++) {
+//                     if (colSum(j + c, i, i + k) !== target) {
+//                         valid = false;
+//                         break;
+//                     }
+//                 }
+//                 if (!valid) continue;
+
+//                 // Check main diagonal
+//                 let diag1 = 0;
+//                 for (let d = 0; d < k; d++) {
+//                     diag1 += grid[i + d][j + d];
+//                 }
+//                 if (diag1 !== target) continue;
+
+//                 // Check anti-diagonal
+//                 let diag2 = 0;
+//                 for (let d = 0; d < k; d++) {
+//                     diag2 += grid[i + d][j + k - 1 - d];
+//                 }
+//                 if (diag2 !== target) continue;
+
+//                 // Found largest valid magic square
+//                 return k;
+//             }
+//         }
+//     }
+
+//     // Every single cell is a 1x1 magic square
+//     return 1;
+// }
 
 
 // 🔁 JS ↔ Python ↔ TypeScript Comparison
